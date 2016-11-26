@@ -1,22 +1,27 @@
 1 - Using Figure 2.2 as a model, illustrate the operation of INSERTION-SORT on the array A = [31, 41, 59, 26, 41, 58].
   [adicionar a imagem da resposta]
-
+***
 2 - Rewrite the INSERTION-SORT procedure to sort into nonincreasing instead of nondecreasing order.
-  Duas possibilidades de implementação:
-    a) trocar a condição da linha 5 para "while *i* > 0 and A[*i*] < *key* (jogar os menores na frente)
+
+Duas possibilidades de implementação:
+ 
+ a) trocar a condição da linha 5 para ==while *i* > 0 and A[*i*] < *key*== (jogar os menores na frente)
     b) varrer a array de trás pra frente.
 
-  Em pseudocódigo:
-    a)
-    ***for*** *j* <- 2 ***to*** *length*[A]
-      ***do*** *key* <- A[*j*]
-        *i* <- *j* - 1
-        ***while*** *i* > 0 and A[*i*] < *key*
-          ***do*** A[*i* + 1] <- A[*i*]
-            *i* <- *i* - 1
-          A[*i* + 1] <- *key*
+Em java:
+~~~java
+	for (int j = 1; j < A.size; j++) {
+		int key = A[j];
+		int i = j - 1;
+		while (i >= 0 && A[i] < key) {
+			A[i + 1] = A[i];
+			i--;
+		}
+		A[i + 1] = key;
+	} 
+~~~
+    
 
-    b)
 
 3 - Consider the searching problem:
 
